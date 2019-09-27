@@ -1,10 +1,10 @@
 package main
 
-import fmt
+import "fmt"
 
-func main () {
+func main() {
 
-x := 5
-fmt.Printlm(x+5)
+	x := 5
+	fmt.Println(x + 6)
 
 }
