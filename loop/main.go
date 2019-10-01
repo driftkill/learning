@@ -16,13 +16,17 @@ func main() {
 		fmt.Println(x)
 	}
 
-	x = 220
-	for i = x {
-		for j=2; j<=i; j++ {
+	i = 27
+	for i > 0 {
+		if i == 1 {
+			break
+		}
+		for j = 2; j <= i; j++ {
 			if i%j == 0 {
-				fmt.Printf("%d\t", j)
+				println(j)
+				i = i / j
 				break
 			}
 		}
-		x=x%10
 	}
+}
