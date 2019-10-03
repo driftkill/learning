@@ -15,13 +15,10 @@ func main() {
 	x[8] = 76
 	x[9] = 22
 	fmt.Println(x)
-	var temp int
 	for i := 0; i < 10; i++ {
 		for j := i; j < 10; j++ {
 			if x[i] > x[j] {
-				temp = x[i]
-				x[i] = x[j]
-				x[j] = temp
+				x[i], x[j] = x[j], x[i]
 			}
 		}
 	}
