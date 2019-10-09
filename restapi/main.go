@@ -10,6 +10,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// Book is of some type
 type Book struct {
 	ID     string  `json:"id"`
 	Isbn   string  `json:"isbn"`
@@ -17,6 +18,7 @@ type Book struct {
 	Author *Author `json:"author"`
 }
 
+// Author is IDK
 type Author struct {
 	First string `json:"first"`
 	Last  string `json:"last"`
