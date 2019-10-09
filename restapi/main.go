@@ -87,9 +87,9 @@ func main() {
 	books = append(books, Book{ID: "2", Isbn: "123321", Title: "Book-2", Author: &Author{First: "Jay", Last: "Sharma"}})
 
 	r.HandleFunc("/api/books", getBooks).Methods("GET")
-	r.HandleFunc("/api/books/{ID}", getBook).Methods("GET")
+	r.HandleFunc("/api/books/{id}", getBook).Methods("GET")
 	r.HandleFunc("/api/books", createBook).Methods("POST")
-	r.HandleFunc("/api/books/{ID}", updateBook).Methods("PUT")
-	r.HandleFunc("/api/books/{ID}", deleteBook).Methods("DELETE")
+	r.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
+	r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
 	log.Fatal(http.ListenAndServe(":4000", r))
 }
