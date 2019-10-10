@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"math/rand"
 	"net/http"
@@ -28,7 +29,9 @@ var books []Book
 
 func getBooks(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	fmt.Fprintln(w, "Header type set")
 	json.NewEncoder(w).Encode(books)
+	fmt.Fprintln(w, "json data encoded")
 }
 
 func getBook(w http.ResponseWriter, r *http.Request) {
