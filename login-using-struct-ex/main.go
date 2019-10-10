@@ -40,7 +40,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintln(w, "Login successfull !!\nWelcome", item.First, item.Last)
 			return
 		}
-		if item.UserID != params["id"] && item.Password == params["pwd"] {
+		if item.UserID != params["id"] || item.Password == params["pwd"] {
 			fmt.Fprintln(w, "Error - user not found")
 			return
 		}
