@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var x int = 1
+	var x = 1
 	var i, j int
 	for {
 		x++

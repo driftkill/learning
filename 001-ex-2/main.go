@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-var x int = 99
-var y int = x << 1
+var x = 99
+var y = x << 1
 
 func main() {
 	fmt.Printf("%d\t", x)
