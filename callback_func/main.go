@@ -32,8 +32,8 @@ func even(f func(xi ...int) int, vi ...int) int {
 
 func odd(f func(xi ...int) int, vi ...int) int {
 	var zi []int
-	for _, v := range vi{
-		if v%2==1 {
+	for _, v := range vi {
+		if v%2 == 1 {
 			zi = append(zi, v)
 		}
 	}

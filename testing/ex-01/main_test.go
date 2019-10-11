@@ -23,3 +23,9 @@ func TestSum(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkSum(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		sum(4, 5)
+	}
+}
