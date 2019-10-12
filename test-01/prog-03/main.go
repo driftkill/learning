@@ -2,20 +2,22 @@ package main
 
 import (
 	"fmt"
-	"strconv"
+	"math"
 )
 
 func check(x int) bool {
-	l := len(strconv.Itoa(x))
+	count := 0.00
+	c := x
+	for c > 0 {
+		count++
+		c /= 10
+	}
 	a := x
-	var s, sl int
+	var s, r int
 	for a > 0 {
-		if a < 1 {
-			break
-		}
-		sl = a % 10
-		s += sl ^ l
-		a %= 10
+		r = a % 10
+		s = s + int(math.Pow(float64(r), count))
+		a = a / 10
 	}
 	if s == x {
 		return true
@@ -24,9 +26,11 @@ func check(x int) bool {
 }
 
 func main() {
-	var a = 153
+	var a = 1634
 	b := check(a)
 	if b == true {
 		fmt.Println(a, "is an armstrong number.")
+	} else {
+		fmt.Println("Wrong number")
 	}
 }
