@@ -6,7 +6,7 @@ import (
 )
 
 // Int no comments
-func iint(a []int) []int {
+func Int(a []int) []int {
 	sort.Ints(a)
 	return a
 }
@@ -27,7 +27,7 @@ func main() {
 	var x = []int{5, 9, 1, 34, 97, 12, 10, 55}
 	var y = []float64{89.6, 43.22, 40.10, 1.02, 100.9, 54.54, 100.01}
 	var z = []string{"a", "ty", "we", "bg", "jk", "ald", "ttt", "aaa", "ab", "vgh", "vv"}
-	a := iint(x)
+	a := Int(x)
 
 	for _, v := range a {
 		fmt.Print(v, " ")
