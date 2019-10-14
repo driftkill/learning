@@ -17,9 +17,9 @@ func TestSwap(t *testing.T) {
 	}
 
 	for _, v := range tests {
-		
-		if {
-			t.Error("Expected", v.answer, "got", x)
+		x, y := swap(v.data[0], v.data[1])
+		if x != v.answer[0] || y != v.answer[1] {
+			t.Error("Expected", v.answer[0], v.answer[1], "but got", x, y)
 		}
 	}
 }

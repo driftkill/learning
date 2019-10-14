@@ -16,6 +16,6 @@ func circum(r float64) float64 {
 }
 
 func main() {
-	fmt.Println("Area of circle with radius 10 =", area(10))
-	fmt.Println("Circumferrence of circle with radius 10 =", circum(10))
+	fmt.Println("Area of circle with radius 7 =", area(7))
+	fmt.Println("Circumferrence of circle with radius 7 =", circum(7))
 }
