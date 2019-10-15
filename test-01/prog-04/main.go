@@ -2,17 +2,26 @@ package main
 
 import "fmt"
 
-func floyd(x int) {
+func floyd(x int) [][]int {
+
 	var c = 1
+	var y []int
+	var xy [][]int
+
 	for i := 1; i <= x; i++ {
+		y = nil
 		for j := 1; j <= i; j++ {
-			fmt.Print(c, " ")
+			y = append(y, c)
 			c++
 		}
-		fmt.Print("\n")
+		xy = append(xy, y)
 	}
+	return xy
 }
 
 func main() {
-	floyd(7)
+	res := floyd(7)
+	for _, v := range res {
+		fmt.Println(v)
+	}
 }
