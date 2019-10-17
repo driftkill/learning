@@ -20,10 +20,9 @@ func check(e error) {
 	}
 }
 
-func write(data Details) {
-	file, err := json.MarshalIndent(data, "", "  ")
-	check(err)
-	err = ioutil.WriteFile("test.json", file, 0644)
+func write(file []byte) {
+
+	err := ioutil.WriteFile("test.json", file, 0644)
 	check(err)
 }
 
@@ -35,10 +34,12 @@ func read() []byte {
 
 func main() {
 	data := Details{
-		Firstname: "Vishal",
-		Lastname:  "Kumar",
+		Firstname: "Jay",
+		Lastname:  "Sharma",
 	}
-	write(data)
+	file, err := json.Marshal(data)
+	check(err)
+	write(file)
 	dat := read()
 	fmt.Println("File data -\n", string(dat))
 }
