@@ -9,18 +9,18 @@ import (
 
 func main() {
 
-	js := maptojson()
-	fmt.Println(string(js))
-}
-
-func maptojson() []byte {
 	m := map[string]string{
 		"Vishal":  "Kumar",
 		"Rohit":   "Mishra",
 		"Nishant": "Kumar",
 	}
-	fmt.Println(m)
-	file, err := json.Marshal(m)
+	js := maptojson(m)
+	fmt.Println(string(js))
+}
+
+func maptojson(mp map[string]string) []byte {
+
+	file, err := json.Marshal(mp)
 	if err != nil {
 		panic(err)
 	}
