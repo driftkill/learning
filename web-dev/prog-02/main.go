@@ -26,7 +26,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	if err = tpl.ExecuteTemplate(nf, "tpl.vishal", nil); err != nil {
+	if err = tpl.ExecuteTemplate(nf, "tpl.vishal", "VISHAL"); err != nil {
 		log.Fatalln(err)
 	}
 	if err = tpl.ExecuteTemplate(nf, "two.gogo", 768); err != nil {

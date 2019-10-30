@@ -3,6 +3,6 @@
 	<html>
 	    <head> <title> Hello World </title> </head>
 	    <body>
-            <h1>some</h1>
+            <h1>{{.}}</h1>
         </body>
 	</html>

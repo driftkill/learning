@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head><title>FuncMap</title></head>
+    <body>
+        <ul>
+            {{range .Lotone}}
+            <li>{{tu .First}}</li>
+            {{end}}
+        </ul>
+        <ul>
+            {{range .Lottwo}}
+            <li>{{tl .Third}}</li>
+            {{end}}
+        </ul>
+    </body>
+</html>
