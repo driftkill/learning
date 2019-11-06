@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>File Operation</title>
+    </head>
+    <body>
+        <p>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="q">
+                <input type="submit">
+            </form>
+        </p>
+        <p>
+            {{if .}}
+                <h2>
+                    <emp>Here are the contents of that file:</emp>
+                </h2>
+                <emp>{{.}}</emp>
+            {{end}}
+        </p>
+    </body>
+</html>
