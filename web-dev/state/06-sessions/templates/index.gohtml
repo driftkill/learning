@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index Session</title>
+    </head>
+    <body>
+        <form method="POST">
+            <input type="text" name="username" placeholder="enter e-mail"><br>
+            <input type="text" name="firstname" placeholder="first name"><br>
+            <input type="text" name="lastname" placeholder="last name"><br>
+            <input type="submit"><br><br>
+        </form>
+
+        {{if .Firstname}}
+        User Name: {{.Username}}<br>
+        Name: {{.Firstname}} {{.Lastname}}<br>
+        {{end}}
+        <br>
+        <big>Go to <a href="/bar">BAR</a></big>
+    </body>
+</html>
+        
