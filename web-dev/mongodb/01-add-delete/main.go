@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"learning/web-dev/mongodb/01-add-delete/models"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -13,7 +14,7 @@ func main() {
 	r.GET("/", index)
 	r.GET("/user/:id", getUser)
 	r.POST("/user", createUser)
-	r.DELETE("user/:id", deleteUser)
+	r.DELETE("/user/:id", deleteUser)
 	http.ListenAndServe("localhost:8080", r)
 }
 
@@ -34,7 +35,7 @@ func index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Write([]byte(s))
 }
 
-func getUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func getUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	u := models.User{
 		Name:   "James Bond",
 		Gender: "male",
@@ -49,21 +50,21 @@ func getUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	fmt.FprintF(w, "%s\n", uj)
+	fmt.Fprintf(w, "%s\n", uj)
 }
 
 func createUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	u := models.User{}
 	json.NewDecoder(r.Body).Decode(&u)
 	u.Id = "007"
-	uj, _ = json.Marshal(u)
+	uj, _ := json.Marshal(u)
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	fmt.Fprintf(w, "%s\n", uj)
 }
 
-func deleteUser(w http.ResponseWriter, r *http.Request, p httprouter.Parmas) {
+func deleteUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprint(w, "Writer code to delete user\n")
 }
