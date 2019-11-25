@@ -11,7 +11,7 @@ type RadioButton struct {
 	Value      string
 	IsDisabled bool
 	IsChecked  bool
-	text       string
+	Text       string
 }
 
 type PageVariables struct {

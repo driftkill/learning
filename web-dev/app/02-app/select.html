@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery.min.js'></script>
+        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
         <title>{{.PageTitle}}</title>
     </head>
     
@@ -21,7 +21,7 @@
 
         <form action="/selected" method="post">
             {{range $1}}
-            <input type="radio" name={{.Name}} value={{.Value}} {{if .IdDisabled}} disabled=true {{end}} {{if .IsChecked}}checked{{end}}> {{.Text}}
+            <input type="radio" name={{.Name}} value={{.Value}} {{if .IsDisabled}} disabled=true {{end}} {{if .IsChecked}}checked{{end}}> {{.Text}}
             {{end}}
         </form>
         {{end}}
