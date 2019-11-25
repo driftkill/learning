@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+        <form method="POST">
+            <input type="text" name="code"><br>
+            <input type="submit"><br>
+        </form>
+        {{if .Plain}}
+        <p>{{.Plain}} corresponds to {{.Hash}}</p>
+        {{end}}
+    </body>
+</html>

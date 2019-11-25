@@ -11,45 +11,39 @@ import (
 
 type store struct {
 	Plain string
-	Hash  []string
+	Hash  string
 }
+
+var stores []store
 
 var tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.ParseGlob("template/*"))
+	tpl = template.Must(template.ParseGlob("templates/*"))
 }
 
 func main() {
 	http.HandleFunc("/", index)
-	http.Handle("/favicon.ico", http.NotFoundHandler())
-	http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/check", check)
+	http.ListenAndServe(":8000", nil)
+	fmt.Println("Server started at port :8000")
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	code := r.FormValue("code")
-	hash := (r.FormValue("hash"))
-
-	if code != nil {
-		c := []string(getCode(code))
-
-		stores := store{
-			Plain: code,
-			Hash:  c,
-		}
-
-		tpl.ExecuteTemplate(w, "index.gohtml", stores)
+	c := r.FormValue("code")
+	code := getCode(c)
+	stores := store{
+		Plain: c,
+		Hash:  code,
 	}
+	tpl.ExecuteTemplate(w, "index.gohtml", stores)
+}
 
-	if hash != nil {
-		for _, v := range stores {
-			for i := range v.Hash {
-				if v.Hash[i] != hash[i] {
-					return
-				}
-			}
-			tpl.ExecuteTemplate(w, "index.html", v.Plain)
-			break
+func check(w http.ResponseWriter, r *http.Request) {
+	h := r.FormValue("hash")
+	for _, v := range stores {
+		if v.Hash == h {
+			tpl.ExecuteTemplate(w, "check.gohtml", v.Plain)
 		}
 	}
 }
